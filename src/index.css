@@ -1,0 +1,94 @@
+/* Tailwind CSS imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+body {
+  /* @apply font-sans bg-vanilla m-0 p-0 flex flex-col items-center justify-center min-h-screen; */
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --cream: #f3f9d2ff;
+  --tea-green: #cbeaa6ff;
+  --pistachio: #c0d684ff;
+  --dark-purple: #3d0b37ff;
+  --violet-jtc: #63264aff;
+  --old-rose: #c78283ff;
+
+}
+
+h1 {
+  @apply text-center mt-5;
+  color: var(--dark-purple);
+}
+
+.table-container {
+  @apply w-11/12 max-w-screen-lg mx-auto shadow-2xl rounded-lg;
+}
+
+table {
+  @apply w-full border-collapse my-5 table-fixed;
+}
+
+th, td {
+  @apply px-3 py-4 border text-left overflow-hidden overflow-ellipsis whitespace-nowrap;
+}
+
+th {
+  background-color: var(--old-rose);
+  color: var(--violet-jtc);
+  @apply cursor-pointer select-none;
+}
+
+th:hover {
+  background-color: var(--violet-jtc);
+  color: var(--old-rose);
+}
+
+tr:nth-child(even) {
+  background-color: var(--tea-green);
+}
+
+select, label {
+  @apply my-2;
+}
+
+.controls {
+  @apply flex justify-between items-center p-2;
+}
+
+@media (max-width: 768px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    @apply mb-4;
+  }
+
+  td {
+    @apply flex justify-between items-center px-2 py-3 border-b;
+  }
+
+  td:before {
+    @apply font-bold text-left;
+    content: attr(data-label);
+    flex-basis: 50%;
+  }
+}
+
+@media (max-width: 600px) {
+  .controls {
+    @apply flex-col;
+  }
+
+  label, select {
+    @apply w-full my-1;
+  }
+}
